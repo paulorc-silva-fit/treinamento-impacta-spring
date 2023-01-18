@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.model.Professor;
 import app.repository.ProfessorRepository;
+import app.service.ProfessorService;
 
 @RestController
 @RequestMapping("/api")
@@ -40,10 +41,11 @@ public class ProfessorController {
 	// Metodo POST
 	@PostMapping("/cadastrar-professor")
 	public void cadastrarProfessor(@RequestBody Professor prof) {	
+		ProfessorService profService = new ProfessorService();
 		int qtdHoras = prof.getQtdHorasTrabalhadas();
 		float valorHora = prof.getValorHoraTrabalhada();
-		
-		prof.setSalario(qtdHoras * valorHora);
+
+		prof.setSalario(profService.calcularSalario(qtdHoras, valorHora));
 		profRepo.save(prof);
 	}
 	
