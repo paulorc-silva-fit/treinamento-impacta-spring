@@ -1,9 +1,12 @@
 package app.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Professor {
@@ -17,6 +20,9 @@ public class Professor {
 	private float valorHoraTrabalhada;
 	private float salario;
 
+	@OneToMany
+	private List<Turma> turmas;
+	
 	public long getMatricula() {
 		return matricula;
 	}
@@ -63,5 +69,13 @@ public class Professor {
 
 	public void setSalario(float salario) {
 		this.salario = salario;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
 }
