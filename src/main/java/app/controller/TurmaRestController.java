@@ -20,7 +20,7 @@ import app.repository.TurmaRepository;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class TurmaController {
+public class TurmaRestController {
 	@Autowired
 	ProfessorRepository profRepo;
 	

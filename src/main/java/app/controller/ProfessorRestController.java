@@ -20,7 +20,7 @@ import app.service.ProfessorService;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin
-public class ProfessorController {
+public class ProfessorRestController {
 	@Autowired
 	ProfessorRepository profRepo;
 	
