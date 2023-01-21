@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Editar Professor</title>
+	</head>
+	<body>
+		<h1>Edição de dados de um Professor</h1>
+		<div th:each="professor : ${professor}">
+			<form class="container" method="POST">
+				<div>
+					Matrícula:
+					<input type="text" th:value="${professor.matricula}" name="matricula" readonly="readonly"/>
+				</div>
+				<div>
+					Nome:
+					<input type="text" th:value="${professor.nome}" name="nome"/>
+				</div>
+				<div>
+					Idade:
+					<input type="text" th:value="${professor.idade}" name="idade"/>
+				</div>
+				<div>
+					Qtde de Horas Trabalhadas:
+					<input type="text" th:value="${professor.qtdHorasTrabalhadas}" name="qtdHorasTrabalhadas"/>
+				</div>
+				<div>
+					Valor da Hora Trabalhada:
+					<input type="text" th:value="${professor.valorHoraTrabalhada}" name="valorHoraTrabalhada"/>
+				</div>
+				
+				<button type="submit">Alterar</button>
+			</form>
+		</div>
+	</body>
+</html>
