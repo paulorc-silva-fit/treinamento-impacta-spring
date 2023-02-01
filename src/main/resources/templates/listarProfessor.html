@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Listar Professores</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="collapse navbar-collapse" id="navbarNav" style="background: #4682B4">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/listar-professores" style="color: white">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cadastrar-professor" style="color: white">Cadastrar professor</a></li>
+				</ul>
+			</div>
+		</nav>
+	
+		<div class="text-center">
+			<h1>Tabela de Professores</h1>
+			<table class="table table-striped">
+				<thead>
+					<th>Nome</th>
+					<th>Idade</th>
+					<th>Qtde de Horas Trabalhadas</th>
+					<th>Valor da Hora Trabalhada</th>
+					<th>Salario</th>
+					<th>Editar</th>
+					<th>Deletar</th>
+				</thead>
+				<tbody>
+					<tr th:each="professor : ${professores}">
+						<td><span th:text="${professor.nome}"></span></td>			
+						<td><span th:text="${professor.idade}"></span></td>			
+						<td><span th:text="${professor.qtdHorasTrabalhadas}"></span></td>			
+						<td><span th:text="${professor.valorHoraTrabalhada}"></span></td>			
+						<td><span th:text="${professor.salario}"></span></td>
+						<td><a class="btn btn-warning" th:href="${(#mvc.url('PMC#editarProfessor').arg(0, professor.matricula)).build()}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="${(#mvc.url('PMC#deletarProfessor').arg(0, professor.matricula)).build()}">Deletar</a></td>
+					</tr>		
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

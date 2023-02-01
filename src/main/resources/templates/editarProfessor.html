@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Editar Professor</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		
+		<style>
+			input[type=text]{
+				width: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="collapse navbar-collapse" id="navbarNav" style="background: #4682B4">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="/listar-professores" style="color: white">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cadastrar-professor" style="color: white">Cadastrar professor</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="text-center">
+			<h1>Edição de dados de um Professor</h1>
+			<div th:each="professor : ${professor}">
+				<form class="container" method="POST">
+					<div>
+						Matrícula:
+						<input type="text" th:value="${professor.matricula}" name="matricula" readonly="readonly"/>
+					</div>
+					<div>
+						Nome:
+						<input type="text" th:value="${professor.nome}" name="nome"/>
+					</div>
+					<div>
+						Idade:
+						<input type="text" th:value="${professor.idade}" name="idade"/>
+					</div>
+					<div>
+						Qtde de Horas Trabalhadas:
+						<input type="text" th:value="${professor.qtdHorasTrabalhadas}" name="qtdHorasTrabalhadas"/>
+					</div>
+					<div>
+						Valor da Hora Trabalhada:
+						<input type="text" th:value="${professor.valorHoraTrabalhada}" name="valorHoraTrabalhada"/>
+					</div>
+					
+					<button class="btn btn-primary mt-3" type="submit">Alterar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
