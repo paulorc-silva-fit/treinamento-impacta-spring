@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Projeto Final - Login</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<link rel="icon" href="data:,">
+		
+		<style>
+			input {
+ 				width: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container py-5 vh-100">
+	    	<div class="row d-flex justify-content-center align-items-center h-100">
+	      		<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          			<div class="card-body p-5 text-center">
+						<h2>Bem vindo ao Controle de Professores</h2>
+						
+						<form th:action="@{/login}" method="post">
+							<div class="mb-4"> 
+				             	<div class="alert alert-danger mt-4" th:if="${param.error}">Usuário e/ou Senha Inválidos!</div>
+								<div class="alert alert-success mt-4" th:if="${param.logout}">Você fez logout!</div>
+				            </div>
+				            
+							<div class="form-outline mb-4">
+								<input id="login_username" type="text" class="form-control" name="username" placeholder="Usuário" required>
+							</div>
+				
+							<div class="form-outline mb-4">
+								<input id="login_password" type="password" class="form-control" name="password" placeholder="Senha" required>
+							</div>
+				
+							<div>
+								<input type="submit" class="btn btn-primary btn-lg btn-block" value="Entrar">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

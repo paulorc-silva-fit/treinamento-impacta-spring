@@ -1,0 +1,16 @@
+<div th:fragment="navbar">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid" id="navbarContent">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="/cadastrar-professor">Cadastrar professor</a></li>
+				<li class="nav-item"><a class="nav-link" href="/gerenciar-usuarios">Gerenciar usuários</a></li>
+				<li class="nav-item"><a class="nav-link" href="/cadastrar-usuario">Cadastrar usuário</a></li>
+			</ul>
+			
+			<form th:action="@{/logout}" class="d-flex" method="POST">
+				<button class="btn btn-outline-danger" type="submit">Sair</button>
+			</form>
+		</div>
+	</nav>
+</div>
